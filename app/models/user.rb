@@ -1,12 +1,18 @@
 class User < ApplicationRecord
   # Direct associations
 
-  has_many   :verybests,
-             :class_name => "Bookmark",
-             :foreign_key => "dish_id",
+  has_many   :bookmarks,
              :dependent => :destroy
 
   # Indirect associations
+
+  has_many   :dishes,
+             :through => :bookmarks,
+             :source => :dish
+
+  has_many   :venues,
+             :through => :bookmarks,
+             :source => :venue
 
   # Validations
 

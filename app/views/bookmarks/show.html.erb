@@ -24,7 +24,13 @@
       </dd>
 
       <dt>User</dt>
-      <dd><%= @bookmark.user_id %></dd>
+      <dd>
+        <% if @bookmark.user.present? %>
+          <a href="/users/<%= @bookmark.user_id %>">
+            <%= @bookmark.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Notes</dt>
       <dd><%= @bookmark.notes %></dd>

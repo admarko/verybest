@@ -3,8 +3,7 @@ class Bookmark < ApplicationRecord
 
   # Direct associations
 
-  belongs_to :user,
-             :foreign_key => "dish_id"
+  belongs_to :user
 
   belongs_to :venue
 

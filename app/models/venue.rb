@@ -20,11 +20,14 @@ class Venue < ApplicationRecord
   end
   # Direct associations
 
-  has_many   :verybests,
-             :class_name => "Bookmark",
+  has_many   :bookmarks,
              :dependent => :destroy
 
   # Indirect associations
+
+  has_many   :users,
+             :through => :bookmarks,
+             :source => :user
 
   # Validations
 
